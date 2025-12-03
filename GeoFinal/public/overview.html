@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reseñas - Turismo App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="reviews-container">
+        <div class="reviews-wrapper">
+            <header class="reviews-header">
+                <button id="btnVolverMapa" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Volver al mapa</span>
+                </button>
+                <div class="header-copy">
+                    <p class="header-eyebrow">Opiniones verificadas por la comunidad</p>
+                    <h1 id="lugarTitulo" class="reviews-title">Reseñas</h1>
+                </div>
+            </header>
+
+            <main class="reviews-main">
+                <section class="place-card" id="lugarInfo">
+                    <!-- Información del lugar cargada dinámicamente -->
+                </section>
+
+                <div class="reviews-grid">
+                    <section class="card reviews-feed">
+                        <header class="card-header">
+                            <h2>Reseñas recientes</h2>
+                            <div class="rating-pill">
+                                <i class="fas fa-star"></i>
+                                <span id="ratingValue">0.0</span>
+                                <span class="rating-count" id="totalReviews">0 reseñas</span>
+                            </div>
+                        </header>
+                        <div class="reviews-list" id="reviewsList">
+                            <!-- Lista de reseñas cargada dinámicamente -->
+                        </div>
+                    </section>
+
+                    <aside class="card review-compose">
+                        <header class="card-header">
+                            <h2>Agregar reseña</h2>
+                        </header>
+                        <form id="reviewForm" class="review-form">
+                            <div class="form-group">
+                                <label>Calificación</label>
+                                <div class="star-rating">
+                                    <span class="star" data-rating="1">★</span>
+                                    <span class="star" data-rating="2">★</span>
+                                    <span class="star" data-rating="3">★</span>
+                                    <span class="star" data-rating="4">★</span>
+                                    <span class="star" data-rating="5">★</span>
+                                </div>
+                                <input type="hidden" id="calificacion" name="calificacion" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="opinion">Opinión</label>
+                                <textarea id="opinion" name="opinion" maxlength="1000" required></textarea>
+                                <small><span id="charCount">0</span>/1000 caracteres</small>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar reseña</button>
+                        </form>
+                    </aside>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="reviews.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa - Turismo App</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="map-container">
+        <!-- Floating overlays: search (left), title (center) -->
+        <div class="map-overlays">
+            <div class="overlay-left">
+                <button id="toggleSidebar" type="button" class="toggle-sidebar-btn" aria-label="Mostrar u ocultar lista">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="form-group overlay-search">
+                    <input type="text" id="searchInput" placeholder="Buscar por nombre...">
+                </div>
+            </div>
+            <div class="overlay-center">
+                <h1>ExploraGeo</h1>
+            </div>
+            <div class="overlay-right">
+                <div id="toolBar" class="tool-bar"></div>
+            </div>
+        </div>
+        <div id="drawing-instructions" class="drawing-instructions floating-instructions"></div>
+        <!-- Logout button at bottom-right -->
+        <button id="btnLogout" class="btn btn-danger btn-logout-bottom">Cerrar Sesión</button>
+        <div id="message" class="message" style="display: none;"></div>
+        <div class="main-content">
+            
+            <div id="map"></div>
+            
+            <div class="sidebar">
+                <h3>Ubicaciones Registradas</h3>
+                <div class="table-container">
+                    <table class="locations-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Tipo</th>
+                                <th>Ubicación</th>
+                            </tr>
+                        </thead>
+                        <tbody id="locationsTable">
+                            <!-- Datos cargados dinámicamente -->
+                        </tbody>
+                    </table>
+                    <button id="finishPolygonBtn" class="btn-finish">Finalizar Polígono</button>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <script src="mapa.js"></script>
+</body>
+</html>
