@@ -52,12 +52,20 @@ app.use(errorHandler);
 // MongoDB
 app.use(bodyParser.json());
 
-// VICTOR
-mongoose.connect(process.env.MONGODB)
-.then(()=> console.log('Conexion a MongoDB exitosa'))
-.catch(err => console.error('No se puede conectar a MongoDB', err));
+const startServer = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB, {
+      serverSelectionTimeoutMS: 30000,
+    });
+    console.log('Conexion a MongoDB exitosa');
 
-// Listen
-app.listen(port, () => {
-  console.log("My server is on port : " + port)
-})
+    app.listen(port, () => {
+      console.log(`Servidor listo en puerto ${port}`);
+    });
+  } catch (err) {
+    console.error('No se pudo conectar a MongoDB', err);
+    process.exit(1);
+  }
+};
+
+startServer();
