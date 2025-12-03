@@ -37,13 +37,8 @@ app.get("/", (req,res) => {
 // Routers
 routerApi(app);
 
-app.get('*', (req, res, next) => {
+app.get(/^\/(?!pinteres|review|servicio|user|zona).*/, (req, res, next) => {
   if (req.method !== 'GET' || !req.accepts('html')) {
-    return next();
-  }
-
-  const apiPrefixes = ['/pinteres', '/review', '/servicio', '/user', '/zona'];
-  if (apiPrefixes.some((prefix) => req.path.startsWith(prefix))) {
     return next();
   }
 
